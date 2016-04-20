@@ -295,6 +295,7 @@ function extractEvent(row1/*, row2, row3, commentRows*/) {
       link =     $bandTag.attr("href"),
       className  = $(row1).attr('class'),
       day =      className.split(" ")[0],
+      stageId =  className.split(" ")[1],
       time =     $(".show-time", row1).text().trim(),
       stageName =    $(".show-stage", row1).text().trim(),
       sortableTime = buildSortableTime(day, time);
@@ -306,6 +307,7 @@ function extractEvent(row1/*, row2, row3, commentRows*/) {
   event.day = day;
   event.time = time;
   event.stageName = stageName;
+  event.stageId = stageId;
   event.sortableTime = sortableTime;
 
   //if (event.url.indexOf("item?id=") === 0) {
