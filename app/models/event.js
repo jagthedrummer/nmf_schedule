@@ -7,6 +7,7 @@ export default Model.extend({
   time: attr(),
   stageName: attr(),
   stageId: attr(),
+  bandId: attr(),
   title: attr(),
   sortableTime: attr()
 });

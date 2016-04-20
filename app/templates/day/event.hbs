@@ -1,6 +1,9 @@
 <div class="row">
 <h3 data-event-id={{model.id}} class="event-band-name">{{model.bandName}}</h3>
 <h4>{{model.day}} {{model.time}} {{model.stageName}}</h4>
+
+{{band-info bandId=model.id}}
+
 <img src="/maps/{{model.stageId}}.png"/>
 {{outlet}}
 </div>
