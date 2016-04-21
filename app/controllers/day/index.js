@@ -11,6 +11,8 @@ export default Ember.Controller.extend({
   columns: [100],
   //sortProps: ['sortableTime','stageName'],
   //sortedEvents: Ember.computed.sort('model.events', 'sortProps'),
+  
+
   filteredEvents: Ember.computed('model','model.events','selectedStage',function(){
     var events = this.get('model.events');
     var selectedStage = this.get('selectedStage');
@@ -40,7 +42,6 @@ export default Ember.Controller.extend({
 
   actions: {
     addShow(show) {
-      debugger;
       const myShows = this.get('myShows');
       myShows.addShow(show);
     },

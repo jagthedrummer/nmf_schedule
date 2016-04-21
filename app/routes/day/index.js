@@ -28,6 +28,7 @@ export default Ember.Route.extend({
     var day = model.get('id');
     var scrollTop = controller.get('scrollTop'+day) || 0;
     controller.set('scrollTop', scrollTop);
+    
     Ember.run.next(this,function(){
       controller.handleResize();
     });
