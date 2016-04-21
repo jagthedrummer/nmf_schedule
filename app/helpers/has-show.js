@@ -1,9 +1,11 @@
 import Ember from 'ember';
 
-export function hasShow(allShows, thisShow) {
-  console.log('allShows = ',allShows);
-  console.log('thisShow = ',thisShow);
-  return !!allShows.findBy('id',thisShow.get('id'));
+export function hasShow(params) {
+  console.log('params= ',params);
+  var allShows = params[0];
+  var thisShowId = params[1];
+
+  return !!allShows.findBy('id',thisShowId);
 }
 
 export default Ember.Helper.helper(hasShow);

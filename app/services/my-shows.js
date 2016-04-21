@@ -25,7 +25,7 @@ export default Ember.Service.extend({
   }),
 
   initShows: function(){
-    var showIds = localStorage.getItem('myShows').split(',');
+    var showIds = (localStorage.getItem('myShows') || "").split(',');
     this.set('_showIds', showIds);
   }.on('init'),
 

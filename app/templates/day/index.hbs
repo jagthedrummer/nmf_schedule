@@ -34,7 +34,7 @@
                   <h5>{{event.time}}</h5>
                 </div>
                 <div class="event-time small-1 medium-1 columns" onclick={{action "addShow" event}}>
-                  {{#if (hasShow myShows.shows event)}}
+                  {{#if (hasShow myShows.shows event.id)}}
                     {{fa-icon "fa-calendar-check-o"}}
                   {{else}}
                     {{fa-icon "fa-calendar-plus-o"}}
