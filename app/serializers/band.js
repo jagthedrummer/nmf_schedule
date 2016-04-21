@@ -1,7 +1,6 @@
 import DS from 'ember-data';
 import {
-  extractSingle,
-  extractArray as parseArray
+  extractSingle
 } from "nmf-schedule/extractors/band";
 
 export default DS.RESTSerializer.extend({

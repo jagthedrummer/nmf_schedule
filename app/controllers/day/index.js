@@ -28,11 +28,11 @@ export default Ember.Controller.extend({
   
   bindResizeEvent: function() {
     this.handleResize();
-    jQuery(window).on('resize', Ember.run.bind(this, this.handleResize));
+    $(window).on('resize', Ember.run.bind(this, this.handleResize));
   }.on('init'),
 
   unbindResizeEvent: function(){
-    jQuery(window).off('resize');
+    $(window).off('resize');
   }.on('willDestroy'),
 
   actions: {

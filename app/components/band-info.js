@@ -11,7 +11,7 @@ export default Ember.Component.extend({
     console.log('looking for bandId', bandId);
     this.get('store').findRecord('band', bandId).then(function(band){
       component.set('band',band);
-    })
+    });
   }
 
 });

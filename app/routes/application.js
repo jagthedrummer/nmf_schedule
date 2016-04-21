@@ -27,7 +27,7 @@ export default Ember.Route.extend({
             friendlyName: "Saturday"
           },
           allEvents: allEvents
-        }
+        };
         allEvents.forEach(function(event){
           data[event.get('day')].events.push(event);
           if(event.get('stageName').trim() !== ''){

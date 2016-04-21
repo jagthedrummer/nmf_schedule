@@ -17,38 +17,6 @@ function extractID(possibleID) {
 
 
 
-function buildSortableTime(day, time){
-  var sortableTime = 0;
-  switch(day){
-    case "thursday":
-      sortableTime = 100000;
-      break;
-
-    case "friday":
-      sortableTime = 200000;
-      break;
-
-    case "saturday":
-      sortableTime = 300000;
-      break;
-  }
-  var timePart = time.split(" ")[0],
-      amPmPart = time.split(" ")[1],
-      hourPart = parseInt(timePart.split(":")[0]),
-      minPart  = parseInt(timePart.split(":")[1]);
-
-  if(hourPart === 12){
-    // leave it alone
-  }else{ // afternoon
-    hourPart += 12;
-  }
-  if(amPmPart === 'am'){
-    hourPart += 12;
-  }
-  sortableTime += hourPart * 100;
-  sortableTime += minPart;
-  return sortableTime;
-}
 
 function extractBand(body) {
   var band = {
@@ -96,7 +64,7 @@ function extractBand(body) {
   var $bandTag = $(".band-single", body),
       imageUrl = $(".band-content img", $bandTag).attr('src'),
       descriptionTags = $(".band-content p", body),
-      socialLinks = $(".band-social li a",body)
+      socialLinks = $(".band-social li a",body);
 
   var description = "";
 
@@ -199,7 +167,7 @@ export function isError(doc) {
   return $(".band-single", doc).length === 0;
 }
 
-export function parentID(doc) {
+export function parentID(/*doc*/) {
   return null; //extractID( $("body", doc).attr("class") );
 }
 

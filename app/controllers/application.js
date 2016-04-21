@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import $ from 'jquery';
 
 const {
   Controller,
@@ -24,11 +25,11 @@ export default Controller.extend({
   
   bindResizeEvent: function() {
     this.handleResize();
-    jQuery(window).on('resize', Ember.run.bind(this, this.handleResize));
+    $(window).on('resize', Ember.run.bind(this, this.handleResize));
   }.on('init'),
 
   unbindResizeEvent: function(){
-    jQuery(window).off('resize');
+    $(window).off('resize');
   }.on('willDestroy')
 
 });
