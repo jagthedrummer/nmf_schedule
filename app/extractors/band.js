@@ -102,7 +102,14 @@ function extractBand(body) {
 
   $.each(descriptionTags, function(i, tag){
     console.log("trying tag",tag);
-    description += tag.outerHTML;
+    if(i === 0 && $('img', tag).length){
+      // skip this paragraph
+      // we're already selecting the main image separately
+      // this happens because the formatting on the main NMF site is inconsistent
+      // sometimes the main image is inside .band-content, and sometimes it isn't
+    }else{
+      description += tag.outerHTML;
+    }
   });
 
   band.imageUrl = imageUrl;
