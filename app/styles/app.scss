@@ -223,7 +223,7 @@ ol.no-bullets{
 }
 
 .event-time{
-  text-align:center;
+  /*text-align:center;*/
 }
 
 @media screen and (min-width: 40.0625em) {
@@ -258,4 +258,8 @@ ol.no-bullets{
     padding:0.5rem;
     font-size:1.5em;
   }
+}
+
+span.time{
+  white-space:nowrap;
 }

@@ -4,9 +4,9 @@ export default Ember.Component.extend({
   myShows: inject.service(),
   hasShow: function(){},
   actions:{
-    addShow(show) {
+    removeShow(show) {
       const myShows = this.get('myShows');
-      myShows.addShow(show);
+      myShows.removeShow(show);
     },
     chooseTalk: function(){}
   }

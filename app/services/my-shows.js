@@ -13,6 +13,12 @@ export default Ember.Service.extend({
     this.saveShowList();
   },
 
+  removeShow(show) {
+    const shows = this.get('_shows');
+    shows.removeObject(show);
+    this.saveShowList();
+  },
+
   saveShowList(){
     var showIds = this.get('_shows').mapBy('id');
     this.set('_showIds',showIds);
