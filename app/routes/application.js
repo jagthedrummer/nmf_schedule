@@ -46,6 +46,18 @@ export default Ember.Route.extend({
         resolve(data);
       });
     });
+  },
+  setupController(controller,model){
+    this._super(controller,model);
+    Ember.run.next(this,function(){
+      controller.handleResize();
+    });
+    Ember.run.later(this,function(){
+      controller.handleResize();
+    },300);
+    Ember.run.later(this,function(){
+      controller.handleResize();
+    },900);
   }
 
 });

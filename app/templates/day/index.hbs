@@ -2,7 +2,7 @@
   {{!#memory-scroll key=(concat "day" model.id) class="memory-scroll" }}
 
     <section class="row day">
-        <div class="row" id={{model.id}}>
+        <div class="row day-header-row" id={{model.id}}>
             <h2 class="small-6 columns day-header">{{model.friendlyName}}</h2>
             <div class="small-6 columns">
               <select onchange={{action (mut selectedStage) value="target.value"}}>

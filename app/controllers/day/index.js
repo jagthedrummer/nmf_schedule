@@ -2,6 +2,7 @@ import Ember from 'ember';
 import $ from 'jquery';
 
 export default Ember.Controller.extend({
+  applicationController: Ember.inject.controller('application'),
   queryParams: ['selectedStage'],
   selectedStage: '',
   columns: [100],
@@ -16,6 +17,23 @@ export default Ember.Controller.extend({
       return events.filter(event => event.get('stageName') === selectedStage);
     }
   }),
+
+  handleResize: function() {
+    this.get('applicationController').handleResize();
+    var bodyContainerHeight = $('.body-container').height();
+    var dayHeaderHeight = $('.body-container .day-header-row').height();
+    var olHeight = bodyContainerHeight - dayHeaderHeight - 5;
+    this.get('applicationController').set('olHeight', olHeight);
+  },
+  
+  bindResizeEvent: function() {
+    this.handleResize();
+    jQuery(window).on('resize', Ember.run.bind(this, this.handleResize));
+  }.on('init'),
+
+  unbindResizeEvent: function(){
+    jQuery(window).off('resize');
+  }.on('willDestroy'),
 
   actions: {
     chooseTalk(event) {
