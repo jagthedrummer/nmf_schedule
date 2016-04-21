@@ -47,11 +47,9 @@ export default Ember.Controller.extend({
     },
     chooseTalk(event) {
       let talkId = $(event.target).closest('li').data('talk-id');
-      console.log('talkId = ', talkId);
       if (talkId && event.target.nodeName !== 'BUTTON') {
         this.transitionToRoute('day.event', this.get('model.id'), talkId);
       }else{
-        console.log('skipping!');
       }
     },
     scrollChange(left, top){

@@ -6,7 +6,6 @@ import {
 export default DS.RESTSerializer.extend({
 
   normalizeSingleResponse(store, type, payload, id, requestType) {
-    console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&& running extractSingle');
     payload = extractSingle(payload);
 
     this.extractMeta(store, type, payload);

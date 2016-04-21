@@ -7,10 +7,8 @@ export default Ember.Route.extend({
     //}
   //},
   model(params){
-    console.log('calling the model hook', params);
     var day = this.modelFor('day');
     //var events = day.get('events');
-    //console.log('events = ', events);
     //if(params.selectedStage){
       //events = events.filter(event => event.get('stageName') === params.selectedStage)
     //}
@@ -45,7 +43,6 @@ export default Ember.Route.extend({
 
   actions:{
     willTransition(){
-      console.log('calling will transition');
       var scrollTop = this.get('controller.scrollTop');
       var day = this.get('controller.model.id');
       this.set('controller.scrollTop'+day,scrollTop);

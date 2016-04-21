@@ -26,7 +26,6 @@ export default Ember.Service.extend({
   },
 
   shows: computed('_shows.[]', function() {
-    console.log('_shows = ', this.get('_shows'));
     return this.get('_shows').sortBy('sortableTime','stageName');;
   }),
 
@@ -36,7 +35,6 @@ export default Ember.Service.extend({
   }.on('init'),
 
   initEvents: function(events){
-    console.log('--------------- calling initEvents');
     this.set('_allShows',events);
   },
 
@@ -49,10 +47,7 @@ export default Ember.Service.extend({
     var allShows = this.get('_allShows');
     var shows = this.get('_shows');
     showIds.forEach(function(showId){
-      console.log('looking for ', showId);
       var show = allShows.findBy('id',showId);
-      console.log('show = ', show);
-      console.log('allShows = ', allShows);
       if(show){
         shows.addObject(show);
       }

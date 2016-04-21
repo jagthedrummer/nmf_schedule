@@ -4,10 +4,8 @@ var $ = Ember.$;
 
 
 function extractID(possibleID) {
-  console.log('extracting ID from ', possibleID);
   var segments = possibleID.split(' ');
   var id = segments[segments.length-1];
-  console.log('extracted id = ', id);
   return id;
   //return(possibleID);
   //var match = /^(?:up_|item\?id=)(\d+)$/.exec(possibleID);
@@ -68,10 +66,8 @@ function extractBand(body) {
 
   var description = "";
 
-  console.log("descriptionTags = ", descriptionTags);
 
   $.each(descriptionTags, function(i, tag){
-    console.log("trying tag",tag);
     if(i === 0 && $('img', tag).length){
       // skip this paragraph
       // we're already selecting the main image separately
@@ -153,11 +149,9 @@ function extractBand(body) {
 }
 
 export function extractSingle(doc) {
-  console.log("000000000000000 starting extractSingle");
   var body = $("body", doc);
 
   var band = extractBand( body );
-  console.log("11111111111111 extracted band", band);
 
   return { band };
 }

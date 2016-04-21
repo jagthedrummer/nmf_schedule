@@ -7,14 +7,12 @@ export default Ember.Route.extend({
   myShows: inject.service(),
 
   afterModel() {
-    console.log("A S D EFF!");
   },
 
   model(params) {
     var _this = this;
     return new Ember.RSVP.Promise(function(resolve) {
       _this.store.query('event', params).then(function(allEvents) {
-        console.log("events -----------", allEvents);
         var data = {
           thursday: {
             id: 'thursday',

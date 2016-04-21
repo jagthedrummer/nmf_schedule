@@ -18,8 +18,6 @@ export default DS.RESTAdapter.extend({
 
       var xhr = new XMLHttpRequest();
 
-      console.log('buildUrl = ', this.buildUrl(`item?id=${id}`));
-      console.log('id = ', id);
       xhr.open("GET", this.buildUrl(`item?id=${id}`), true);
       xhr.responseType = "document";
 
@@ -45,38 +43,28 @@ export default DS.RESTAdapter.extend({
   findAll(store, type) { this.findQuery(store, type); },
 
   query(store, type, query = {}) {
-    console.log('starting query');
     return new Ember.RSVP.Promise( (resolve, reject) => {
 
       var xhr = new XMLHttpRequest();
 
-      console.log('urlForQuery = ', this.urlForQuery(query));
       xhr.open("GET", this.urlForQuery(query), true);
       xhr.responseType = "document";
-      console.log('set responseType');
 
       xhr.onload = () => {
-        console.log('in onload');
         if (isError(xhr.response)) {
-          console.log('isError', xhr.response);
           Ember.run(null, reject, "Not found");
         } else {
-          console.log('in else');
-          console.log(xhr.response);
           Ember.run(null, resolve, xhr.response);
         }
       };
 
       xhr.onerror = () => Ember.run(null, reject, xhr.statusText);
-      console.log('starting xhr send');
       xhr.send();
-      console.log('after xhr send');
 
     });
   },
 
   urlForQuery({ filter, page }) {
-    console.log('calling urlForQuery', filter, page);
     var url;
 
     filter = filter || "schedule";

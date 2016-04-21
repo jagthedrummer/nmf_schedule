@@ -13,8 +13,6 @@ export default DS.RESTAdapter.extend({
 
       var xhr = new XMLHttpRequest();
 
-      console.log('buildUrl = ', this.buildUrl(`bands/${id}`));
-      console.log('id = ', id);
       xhr.open("GET", this.buildUrl(`bands/${id}`), true);
       xhr.responseType = "document";
 
@@ -22,13 +20,10 @@ export default DS.RESTAdapter.extend({
 
       xhr.onload = () => {
         if (isError(xhr.response)) {
-          console.log('************** isError', xhr.response);
           Ember.run(null, reject, "Not found");
         } else if(parent = parentID(xhr.response)) {
-          console.log('*************** parent thing');
           Ember.run(null, resolve, this.find(store, type, parent));
         } else {
-          console.log('*************** ELSE');
           Ember.run(null, resolve, xhr.response);
         }
       };

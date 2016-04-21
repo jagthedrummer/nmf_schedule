@@ -19,10 +19,8 @@ export default Controller.extend({
   myShows: service(),
 
   initMyShows: Ember.observer('model', 'model.allEvents.[]', '', function(){
-    console.log("$$$$$$$$$$$$$$$$$$$$$$ initMyShows");
     var myShows = this.get('myShows');
     var events = this.get('model.allEvents');
-    console.log('events = ', events);
     myShows.initEvents(events);
   }),
 
