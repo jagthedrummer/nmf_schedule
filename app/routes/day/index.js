@@ -6,7 +6,7 @@ export default Ember.Route.extend({
       //refreshModel: true
     //}
   //},
-  model(params){
+  model(/*params*/){
     var day = this.modelFor('day');
     //var events = day.get('events');
     //if(params.selectedStage){

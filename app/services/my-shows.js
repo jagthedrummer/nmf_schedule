@@ -26,7 +26,7 @@ export default Ember.Service.extend({
   },
 
   shows: computed('_shows.[]', function() {
-    return this.get('_shows').sortBy('sortableTime','stageName');;
+    return this.get('_shows').sortBy('sortableTime','stageName');
   }),
 
   initShows: function(){

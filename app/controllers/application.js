@@ -41,7 +41,7 @@ export default Controller.extend({
   }.on('willDestroy'),
 
   actions: {
-    chooseTalk(event){}
+    chooseTalk(/*event*/){}
   }
 
 });
