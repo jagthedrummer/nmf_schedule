@@ -1,8 +1,11 @@
 import Ember from 'ember';
 import $ from 'jquery';
 
+const { inject } = Ember;
+
 export default Ember.Controller.extend({
   applicationController: Ember.inject.controller('application'),
+  myShows: inject.service(),
   queryParams: ['selectedStage'],
   selectedStage: '',
   columns: [100],
@@ -36,6 +39,11 @@ export default Ember.Controller.extend({
   }.on('willDestroy'),
 
   actions: {
+    addShow(show) {
+      debugger;
+      const myShows = this.get('myShows');
+      myShows.addShow(show);
+    },
     chooseTalk(event) {
       let talkId = $(event.target).closest('li').data('talk-id');
       console.log('talkId = ', talkId);
