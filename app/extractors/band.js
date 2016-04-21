@@ -54,7 +54,8 @@ function extractBand(body) {
   var band = {
     id:        null,
     imageUrl:  null,
-    description:     null
+    description:     null,
+    socialLinks:     null
   };
 
   band.id = extractID( $(body).attr("class") );
@@ -94,7 +95,8 @@ function extractBand(body) {
 
   var $bandTag = $(".band-single", body),
       imageUrl = $(".band-content img", $bandTag).attr('src'),
-      descriptionTags = $(".band-content p", body);
+      descriptionTags = $(".band-content p", body),
+      socialLinks = $(".band-social li a",body)
 
   var description = "";
 
@@ -114,6 +116,7 @@ function extractBand(body) {
 
   band.imageUrl = imageUrl;
   band.description = description;
+  band.socialLinks = socialLinks;
 
   //if (event.url.indexOf("item?id=") === 0) {
     //event.tag = event.tag || "Discuss";

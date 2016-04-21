@@ -1,4 +1,11 @@
 {{#if band}}
+  {{#if band.socialLinks}}
+    <ul class="social-links clearfix">
+      {{#each band.socialLinks as |link|}}
+        <li>{{{link}}}</li>
+      {{/each}}
+    </ul>
+  {{/if}}
   {{#if band.imageUrl}}
     <img src="{{band.imageUrl}}"/>
   {{/if}}

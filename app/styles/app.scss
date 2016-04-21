@@ -231,3 +231,16 @@ ol.no-bullets{
 .row .row{
   margin:0px;
 }
+
+
+.social-links{
+  list-style:none;
+  padding:0;
+  margin:1rem 0;
+  li{
+    float:left;
+    background:#dedede;
+    margin-right:0.5rem;
+    padding:0.5rem 1rem;
+  }
+}
