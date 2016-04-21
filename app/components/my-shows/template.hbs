@@ -1,9 +1,33 @@
 <hr>
 <h2>My Shows</h2>
-{{#each myShows.shows as |show|}}
-  {{log show}}
+{{#if myShows.shows.length}}
+  <ol class="no-bullets">
+  {{#each myShows.shows as |event|}}
+    <li class='small-12 columns accordion event-row' data-talk-id={{event.id}} data-event-row-id={{event.id}}>
+      <div class="row small-collapse medium-uncollapse">
+
+        <div class="band-name small-9 medium-5 columns" onclick={{action "chooseTalk"}}>
+          <h3 data-event-id={{event.id}}>{{event.bandName}}</h3>
+          {{!is-interested-button talkId=talk.id}}
+        </div>
+        <div class="stage-name small-8 medium-5 columns" onclick={{action "chooseTalk"}}>
+          <h5>{{event.stageName}}</h5>
+          {{!is-interested-button talkId=talk.id}}
+        </div>
+        <div class="event-time small-3 medium-1 columns" onclick={{action "chooseTalk"}}>
+          <h5>{{event.time}}</h5>
+        </div>
+        <div class="event-time small-1 medium-1 columns" onclick={{action "addShow" event}}>
+            {{fa-icon "fa-calendar-check-o"}}
+            {{fa-icon "fa-calendar-plus-o"}}
+            {{fa-icon "fa-calendar-times-o"}}
+        </div>
+      </div>
+    </li>
+  {{/each}}
+  </ol>
 {{else}}
   Mark the shows you want to see and we'll keep track of them here!
-{{/each}}
+{{/if}}
 {{yield}}
 <hr>

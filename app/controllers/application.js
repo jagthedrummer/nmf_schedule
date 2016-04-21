@@ -16,6 +16,16 @@ export default Controller.extend({
 
   olHeight: "100",
 
+  myShows: service(),
+
+  initMyShows: Ember.observer('model', 'model.allEvents.[]', '', function(){
+    console.log("$$$$$$$$$$$$$$$$$$$$$$ initMyShows");
+    var myShows = this.get('myShows');
+    var events = this.get('model.allEvents');
+    console.log('events = ', events);
+    myShows.initEvents(events);
+  }),
+
   handleResize: function() {
     var windowHeight = $(window).height();
     var navHeight = $('.day-nav').height();
@@ -30,6 +40,10 @@ export default Controller.extend({
 
   unbindResizeEvent: function(){
     $(window).off('resize');
-  }.on('willDestroy')
+  }.on('willDestroy'),
+
+  actions: {
+    chooseTalk(event){}
+  }
 
 });

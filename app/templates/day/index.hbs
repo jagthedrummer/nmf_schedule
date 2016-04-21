@@ -26,17 +26,20 @@
                   <h3 data-event-id={{event.id}}>{{event.bandName}}</h3>
                   {{!is-interested-button talkId=talk.id}}
                 </div>
-                <div class="stage-name small-9 medium-5 columns" onclick={{action "chooseTalk"}}>
+                <div class="stage-name small-8 medium-4 columns" onclick={{action "chooseTalk"}}>
                   <h5>{{event.stageName}}</h5>
                   {{!is-interested-button talkId=talk.id}}
                 </div>
-                <div class="event-time small-2 medium-1 columns" onclick={{action "chooseTalk"}}>
+                <div class="event-time small-3 medium-2 columns" onclick={{action "chooseTalk"}}>
                   <h5>{{event.time}}</h5>
                 </div>
                 <div class="event-time small-1 medium-1 columns" onclick={{action "addShow" event}}>
+                  {{#if (hasShow myShows.shows event)}}
                     {{fa-icon "fa-calendar-check-o"}}
+                  {{else}}
                     {{fa-icon "fa-calendar-plus-o"}}
                     {{fa-icon "fa-calendar-times-o"}}
+                  {{/if}}
                 </div>
               </div>
             </li>

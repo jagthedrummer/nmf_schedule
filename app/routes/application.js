@@ -7,7 +7,7 @@ export default Ember.Route.extend({
   myShows: inject.service(),
 
   afterModel() {
-    console.log("A S D EFF");
+    console.log("A S D EFF!");
   },
 
   model(params) {
