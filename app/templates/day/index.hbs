@@ -19,18 +19,18 @@
           {{#ember-collection items=filteredEvents cell-layout=(percentage-columns-layout filteredEvents.length columns 100)
             scroll-left=scrollLeft scroll-top=scrollTop scroll-change=(action "scrollChange")
             as |event index| }}
-            <li class='small-12 columns accordion event-row' data-talk-id={{event.id}} data-event-row-id={{event.id}}>
+            <li class='small-12 columns accordion event-row' data-talk-id={{event.id}} data-event-row-id={{event.id}} onclick={{action "chooseTalk"}}>
               <div class="row small-collapse medium-uncollapse">
 
-                <div class="band-name small-7 medium-5 columns" onclick={{action "chooseTalk"}}>
+                <div class="band-name small-7 medium-5 columns" >
                   <h3 data-event-id={{event.id}}>{{event.bandName}}</h3>
                   {{!is-interested-button talkId=talk.id}}
                 </div>
-                <div class="stage-name small-5 medium-4 columns" onclick={{action "chooseTalk"}}>
+                <div class="stage-name small-5 medium-4 columns" >
                   <h5>{{event.stageName}}</h5>
                   {{!is-interested-button talkId=talk.id}}
                 </div>
-                <div class="event-time small-9 medium-2 columns" onclick={{action "chooseTalk"}}>
+                <div class="event-time small-9 medium-2 columns" >
                   <h5>{{event.time}}</h5>
                 </div>
                 <div class="event-time small-3 medium-1 columns" onclick={{action "addShow" event}}>
