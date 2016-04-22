@@ -6,7 +6,7 @@ module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     // Add options here
     fingerprint: {
-	  	exclude: ['maps/**']
+	  	exclude: ['maps/**', 'logo.png']
   	}
   });
 

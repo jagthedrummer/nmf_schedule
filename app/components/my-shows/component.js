@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import $ from 'jquery';
 const { inject } = Ember;
 export default Ember.Component.extend({
   myShows: inject.service(),

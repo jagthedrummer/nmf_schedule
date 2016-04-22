@@ -10,7 +10,7 @@ const {
 export default Controller.extend({
   routing: service('-routing'),
 
-  showArrow: Ember.computed('routing.currentPath', function(){
+  showArrow: computed('routing.currentPath', function(){
     return this.get('routing.currentPath') === 'day.event' ||
       this.get('routing.currentPath') === 'my-show';
   }),
@@ -21,7 +21,7 @@ export default Controller.extend({
 
   myShows: service(),
 
-  backLinkPath: Ember.computed('routing.currentPath', function(){
+  backLinkPath: computed('routing.currentPath', function(){
     if(this.get('routing.currentPath') === 'day.event'){
       return "day.index";
     }
