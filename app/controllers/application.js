@@ -18,6 +18,8 @@ export default Controller.extend({
 
   myShows: service(),
 
+  backLinkPath: "day.index",
+
   initMyShows: Ember.observer('model', 'model.allEvents.[]', '', function(){
     var myShows = this.get('myShows');
     var events = this.get('model.allEvents');
@@ -38,10 +40,7 @@ export default Controller.extend({
 
   unbindResizeEvent: function(){
     $(window).off('resize');
-  }.on('willDestroy'),
+  }.on('willDestroy')
 
-  actions: {
-    chooseTalk(/*event*/){}
-  }
 
 });

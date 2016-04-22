@@ -45,6 +45,24 @@ export default function() {
     })
   );
 
+
+  this.transition(
+    this.fromRoute('index'),
+    this.toRoute('my-show'),
+    this.use('explode', {
+      matchBy: 'data-event-id',
+      use: 'fly-to'
+    }, {
+      use: 'to-up'
+    }),
+    this.reverse('explode', {
+      matchBy: 'data-event-id',
+      use: 'fly-to'
+    }, {
+      use: 'to-down'
+    })
+  );
+
   //this.transition(
     //this.childOf('ol.no-bullets'),
     //this.use('explode', {

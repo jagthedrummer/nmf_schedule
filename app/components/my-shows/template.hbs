@@ -11,20 +11,19 @@
 {{#if myShows.shows.length}}
   <ol class="no-bullets">
   {{#each myShows.shows as |event|}}
-    <li class='small-12 columns accordion event-row' data-talk-id={{event.id}} data-event-row-id={{event.id}}>
+    <li class='small-12 columns accordion event-row' data-talk-id={{event.id}} data-event-row-id={{event.id}} onclick={{action "chooseShow"}}>
       <div class="row small-collapse medium-uncollapse">
 
-        <div class="band-name small-7 medium-5 columns" onclick={{action "chooseTalk"}}>
+        <div class="band-name small-7 medium-5 columns">
           <h3 data-event-id={{event.id}}>{{event.bandName}}</h3>
           {{!is-interested-button talkId=talk.id}}
         </div>
-        <div class="stage-name small-5 medium-3 columns" onclick={{action "chooseTalk"}}>
+        <div class="stage-name small-5 medium-3 columns">
           <h5>{{event.stageName}}</h5>
           {{!is-interested-button talkId=talk.id}}
         </div>
-        <div class="event-time small-9 medium-3 columns" onclick={{action "chooseTalk"}}>
+        <div class="event-time small-9 medium-3 columns">
           <h5>{{event.day}} - <span class="time">{{event.time}}</span></h5>
-
         </div>
         <div class="event-time small-3 medium-1 columns" onclick={{action "removeShow" event}}>
           <h3 class="remove">{{fa-icon "fa-calendar-times-o"}}</h3>
