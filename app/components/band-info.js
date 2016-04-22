@@ -8,6 +8,9 @@ export default Ember.Component.extend({
   willInsertElement(){
     var component = this;
     var bandId = this.get('bandId');
+    if(!bandId){
+      return;
+    }
     this.get('store').findRecord('band', bandId).then(function(band){
       component.set('band',band);
     });

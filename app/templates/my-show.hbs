@@ -1,2 +1,10 @@
-
-{{partial 'day/event'}}
+{{#if model}}
+  {{partial 'day/event'}}
+{{else}}
+  <div class="row">
+    <h2>Aaaahhhhh dang it!</h2>
+    <p>It looks like we couldn't find the show you're looking for.</p>
+    <p>Your best bet now is probably to {{link-to 'go back to the home page.' 'index'}}</p>
+    <p>It's admittedly a poor solution, and one that we only suggest as a last resort with much regret.</p>
+  </div>
+{{/if}}
