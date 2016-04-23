@@ -194,7 +194,7 @@ ul.nav{
 }
 
 .event-band-name{
-  white-space:nowrap;
+  /*white-space:nowrap;*/
 }
 
 ol.no-bullets{
@@ -217,7 +217,13 @@ ol.no-bullets{
   li:nth-child(odd) {background: #FFF;}
 }
 
-.event-time h5, .stage-name h5{
+@media screen and (min-width: 40.0625em) {
+  ol.no-bullets{
+    font-size:1.5em;
+  }
+}
+
+.event-time span, .stage-name span{
   padding-top:3px;
   color:#888;
 }
@@ -245,6 +251,7 @@ ol.no-bullets{
     float:left;
     background:#dedede;
     margin-right:0.5rem;
+    margin-bottom:0.5rem;
     padding:0.5rem 1rem;
   }
 }

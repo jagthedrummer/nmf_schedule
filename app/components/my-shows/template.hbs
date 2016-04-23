@@ -14,20 +14,20 @@
     <li class='small-12 columns accordion event-row' data-talk-id={{event.id}} data-event-row-id={{event.id}} onclick={{action "chooseShow"}}>
       <div class="row small-collapse medium-uncollapse">
 
-        <div class="band-name small-8 medium-5 columns">
-          <h3 data-event-id={{event.id}}>{{event.bandName}}</h3>
+        <div class="band-name small-7 medium-5 columns">
+          <span data-event-id={{event.id}}>{{event.bandName}}</span>
           {{!is-interested-button talkId=talk.id}}
         </div>
-        <div class="event-time small-4 medium-3 columns">
-          <h5>{{short-day event.day}} <span class="time">{{event.time}}</span></h5>
+        <div class="event-time small-5 medium-3 columns">
+          <span>{{short-day event.day}} <span class="time">{{event.time}}</span></span>
         </div>
-        <div class="stage-name small-8 medium-3 columns">
-          <h5>{{event.stageName}}</h5>
+        <div class="stage-name small-7 medium-3 columns">
+          <span>{{event.stageName}}</span>
           {{!is-interested-button talkId=talk.id}}
         </div>
         
-        <div class="event-time small-4 medium-1 columns" onclick={{action "removeShow" event}}>
-          <h3 class="remove">{{fa-icon "fa-calendar-times-o"}}</h3>
+        <div class="event-time small-5 medium-1 columns" onclick={{action "removeShow" event}}>
+          <span class="remove">{{fa-icon "fa-calendar-times-o"}}</span>
         </div>
       </div>
     </li>
