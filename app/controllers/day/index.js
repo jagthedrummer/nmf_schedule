@@ -42,14 +42,17 @@ export default Ember.Controller.extend({
 
   actions: {
     addShow(show) {
+      console.log('running addShow');
       const myShows = this.get('myShows');
       myShows.addShow(show);
     },
     chooseTalk(event) {
+      console.log('running chooseTalk', event);
       let talkId = $(event.target).closest('li').data('talk-id');
-      if (talkId && event.target.nodeName !== 'BUTTON') {
+      if (talkId && event.target.nodeName !== 'I') {
         this.transitionToRoute('day.event', this.get('model.id'), talkId);
       }else{
+        console.log('in the else', talkId, event.target.nodeName);
       }
     },
     scrollChange(left, top){

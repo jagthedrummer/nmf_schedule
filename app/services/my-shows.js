@@ -8,9 +8,17 @@ export default Ember.Service.extend({
   _allShows: [],
 
   addShow(show) {
+    console.log('calling addShow in the service!!!', show);
     const shows = this.get('_shows');
-    shows.addObject(show);
+    if(shows.contains(show)){
+      console.log('already contains show');
+      shows.removeObject(show);
+    }else{
+      console.log('adding show');
+      shows.addObject(show);
+    }
     this.saveShowList();
+    return false;
   },
 
   removeShow(show) {

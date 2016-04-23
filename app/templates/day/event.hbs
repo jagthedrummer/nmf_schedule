@@ -1,5 +1,15 @@
 <div class="row">
-<h3 data-event-id={{model.id}} class="event-band-name">{{model.bandName}}</h3>
+<h3 data-event-id={{model.id}} class="event-band-name">
+  {{model.bandName}}
+  <span onclick={{action "addShow" model}}>
+  {{#if (hasShow myShows.shows model.id)}}
+    {{fa-icon "fa-calendar-times-o"}}
+  {{else}}
+    {{fa-icon "fa-calendar-plus-o"}}
+  {{/if}}
+  </span>
+</h3>
+
 <h4>{{model.day}} {{model.time}} {{model.stageName}}</h4>
 
 {{band-info bandId=model.id}}
